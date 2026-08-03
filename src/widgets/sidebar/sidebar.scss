@@ -1,0 +1,46 @@
+@use "../../app/styles/variables" as *; 
+
+.sidebar {
+    width: 260px;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    padding: 24px;
+    background: $color-background;
+    border-right: 1px solid #333;
+
+    &__container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__title {
+        color: $color-white;
+        font-size: 24px;
+        font-weight: 700;
+    }
+
+    &__nav {
+        display: flex;
+    }
+
+    &__nav-list {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+    }
+
+    &__nav-link {
+        color: $color-grey;
+        transition: color 0.3s ease;
+
+        &:hover {
+            color: $color-white;
+        }
+    }
+}
