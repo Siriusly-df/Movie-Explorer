@@ -1,0 +1,18 @@
+.button {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 500;
+  transition: 0.2s ease;
+
+  &--primary {
+    background: #ffffff;
+    color: #111;
+  }
+
+  &:disabled {
+    opacity: 0.45;
+  }
+}
