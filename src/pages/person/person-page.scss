@@ -1,0 +1,80 @@
+.person-page {
+  padding: 40px;
+
+  &__header {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+    margin-bottom: 40px;
+  }
+
+  &__image {
+    width: 320px;
+    border-radius: 16px;
+    flex-shrink: 0;
+  }
+
+  &__name {
+    font-size: 42px;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    font-size: 17px;
+  }
+
+  &__name {
+    font-size: 42px;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+
+  &__birthday,
+  &__deathday,
+  &__place,
+  &__known-for,
+  &__popularity {
+    line-height: 1.6;
+  }
+
+  &__biography {
+    margin-bottom: 50px;
+  }
+
+  &__biography-title {
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+
+  &__biography-text {
+    line-height: 1.8;
+    font-size: 17px;
+    white-space: pre-line;
+  }
+
+  &__movies {
+    margin-top: 40px;
+  }
+
+  &__movies-title {
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 24px;
+  }
+
+  &__movies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 20px;
+  }
+
+  &__movies-grid a {
+    text-decoration: none;
+    color: inherit;
+  }
+}

@@ -25,7 +25,6 @@ export function HomePage() {
     window.scrollTo(0, 0);
   }, [page]);
 
-
   const popularQuery = usePopularMovies(page);
   const searchQuery = useSearchMovies(debouncedSearchValue, page);
   const isSearching = searchValue !== "";
@@ -68,7 +67,6 @@ export function HomePage() {
                     />
                   </Link>
                 ))}
-                
             </div>
             <Pagination 
               className="profile-pagination"

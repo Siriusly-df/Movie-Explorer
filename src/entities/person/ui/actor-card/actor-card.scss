@@ -1,0 +1,44 @@
+.actor-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 12px;
+  background-color: #1f1f1f;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+  }
+
+  &__image-wrapper {
+    width: 100%;
+    aspect-ratio: 2 / 3;
+    overflow: hidden;
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  &__info {
+    padding: 12px;
+  }
+
+  &__name {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+  }
+
+  &__character {
+    margin-top: 6px;
+    font-size: 14px;
+    color: #b3b3b3;
+  }
+}

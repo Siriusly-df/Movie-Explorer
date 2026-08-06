@@ -29,17 +29,28 @@
     font-size: 18px;
   }
 
-  &__genres {
+  &__genres,
+  &__countries,
+  &__runtime-block {
     display: flex;
+    align-items: center;
     flex-wrap: wrap;
     gap: 10px;
   }
 
-  &__genre {
-    padding: 8px 14px;
-    border-radius: 999px;
-    background: #2d2d2d;
-    font-size: 14px;
+  &__genres-title,
+  &__countries-title,
+  &__runtime-title {
+    font-weight: 600;
+  }
+
+  &__genre,
+  &__country {
+    font-size: 17px;
+  }
+
+  &__runtime {
+    font-size: 16px;
   }
 
   &__description {
@@ -50,5 +61,31 @@
     margin-top: 16px;
     line-height: 1.7;
     font-size: 17px;
+  }
+
+  &__actors-title {
+    margin-top: 50px;
+    margin-bottom: 20px;
+    font-size: 28px;
+    font-weight: 600;
+  }
+
+  &__credits {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 20px;
+  }
+
+    &__similar-title {
+    margin-top: 50px;
+    margin-bottom: 20px;
+    font-size: 28px;
+    font-weight: 600;
+  }
+
+  &__similar {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 24px;
   }
 }
