@@ -4,10 +4,6 @@ export const getMovies = async (page = 1) => {
   return apiClient(`/movie/popular?page=${page}`);
 };
 
-export const searchMovies = async (query, page = 1) => {
-    return apiClient(`/search/movie?query=${encodeURIComponent(query)}&page=${page}`);
-}
-
 export const getMovieById = async (id) => {
     return apiClient(`/movie/${id}`)
 }

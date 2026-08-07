@@ -1,14 +1,14 @@
-import { useParams } from "react-router-dom"
-import { useMovie } from "../../entities/movie/api/use-movie"
+import { Link, useParams } from "react-router-dom";
+import { useMovie } from "../../entities/movie/api/use-movie";
+import { useSimilarMovies } from "../../entities/movie/api/use-similar-movies";
+import { useMovieCredits } from "../../entities/person/api/use-movie-credits";
+import { MovieCard } from "../../entities/movie/ui/movie-card/movie-card";
+import { ActorCard } from "../../entities/person/ui/actor-card/actor-card";
+import { FavoriteButton } from "../../features/favorite/ui/favorite-button/favorite-button";
 import { Loader } from "../../shared/ui/loader/loader";
 import { ErrorMessage } from "../../shared/ui/error-message/error-message";
 import { getImageUrl } from "@/shared/lib/get-image-url";
-import { useMovieCredits } from "../../entities/person/api/use-movie-credits";
-import { ActorCard } from "../../entities/person/ui/actor-card/actor-card";
-import { useSimilarMovies } from "../../entities/movie/api/use-similar-movies";
-import { MovieCard } from '../../entities/movie/ui/movie-card/movie-card';
-import { Link } from "react-router-dom";
-import "./movie-page.scss"
+import "./movie-page.scss";
 
 export function MoviePage() {
     const { id } = useParams();
@@ -29,6 +29,7 @@ export function MoviePage() {
             />
             <div className="movie-page__info">
                 <h1 className="movie-page__title">{movie.title}</h1>
+                <FavoriteButton movie={movie}/>
                 <p className="movie-page__average">Average: {movie.vote_average.toFixed(1)}</p>
                 <p className="movie-page__release-date">Release date: {movie.release_date}</p>
             <div className="movie-page__runtime-block">

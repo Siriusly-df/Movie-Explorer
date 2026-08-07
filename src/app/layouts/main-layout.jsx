@@ -11,9 +11,8 @@ export function MainLayout() {
       <Sidebar />
         <div className="layout__main">
           <div className="layout__search">
-                <SearchBar />
+            <SearchBar />
           </div>
-
           <main className="layout__content">
             <Outlet />
           </main>
