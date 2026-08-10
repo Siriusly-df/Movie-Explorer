@@ -49,12 +49,11 @@ export function SearchPage () {
             <p>No movies found</p>
         )}
         {data?.results?.map((movie) => (
-        <Link key={movie.id} to={`/movie/${movie.id}`}>
-                <MovieCard 
-                    movie={movie} 
-                />
-                </Link>
-            ))}
+            <MovieCard
+                key={movie.id}
+                movie={movie}
+            />
+        ))}
         </div>
         <Pagination 
             className="profile-pagination"

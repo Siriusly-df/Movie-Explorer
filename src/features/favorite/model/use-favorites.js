@@ -1,7 +1,7 @@
-import { 
-    getFavorites, 
+import {
+    getFavorites,
     addFavorite as addFavoriteStorage,
-    removeFavorite as removeFavoriteStorage 
+    removeFavorite as removeFavoriteStorage
 } from "../../../shared/lib/favorites";
 import { useState, useEffect } from "react";
 
@@ -12,8 +12,8 @@ export function useFavorites(movieId) {
         setFavorites(getFavorites());
     }, []);
 
-    const addFavorite = (movie) => {
-        addFavoriteStorage(movie);
+    const addFavorite = (movieId) => {
+        addFavoriteStorage(movieId);
         setFavorites(getFavorites());
     };
 
@@ -22,9 +22,7 @@ export function useFavorites(movieId) {
         setFavorites(getFavorites());
     };
 
-    const isFavorite = favorites.some(
-        (movie) => movie.id === movieId
-    );
+    const isFavorite = favorites.includes(movieId);
 
     return {
         favorites,

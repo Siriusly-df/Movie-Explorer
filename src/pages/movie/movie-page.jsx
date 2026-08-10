@@ -23,13 +23,16 @@ export function MoviePage() {
     return (
         <div className="movie-page">
         <div className="movie-page__header">
-            <img className="movie-page__image" 
-            src={getImageUrl(movie.poster_path)}
-            alt={movie.title}
+        <div className="movie-page__image-wrapper">
+            <img
+                className="movie-page__image"
+                src={getImageUrl(movie.poster_path)}
+                alt={movie.title}
             />
+            <FavoriteButton movie={movie} className="movie-page__favorite"/>
+        </div>
             <div className="movie-page__info">
                 <h1 className="movie-page__title">{movie.title}</h1>
-                <FavoriteButton movie={movie}/>
                 <p className="movie-page__average">Average: {movie.vote_average.toFixed(1)}</p>
                 <p className="movie-page__release-date">Release date: {movie.release_date}</p>
             <div className="movie-page__runtime-block">
@@ -66,17 +69,16 @@ export function MoviePage() {
           <h2 className="movie-page__actors-title">Cast</h2>
             <div className="movie-page__credits">
                 {actor?.cast?.slice(0, 10).map((actor) => (
-                <Link  key={actor.id}  to={`/actor/${actor.id}`}>
-                <ActorCard actor={actor} />
-                </Link>
+                    <ActorCard key={actor.id} actor={actor} />
                 ))}
             </div>
             <h2 className="movie-page__similar-title">Similar Movies</h2>
             <div className="movie-page__similar">
                 {similarMovies?.results?.slice(0, 6).map((movie) => (
-                <Link key={movie.id} to={`/movie/${movie.id}`}>
-                    <MovieCard movie={movie} />
-                </Link>
+                    <MovieCard
+                        key={movie.id}
+                        movie={movie}
+                    />
                 ))}
             </div>
         </div>

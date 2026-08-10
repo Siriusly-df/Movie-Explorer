@@ -1,11 +1,15 @@
 import { getImageUrl } from "@/shared/lib/get-image-url";
+import { FavoriteButton } from "../../../../features/favorite/ui/favorite-button/favorite-button";
+import { Link } from "react-router-dom";
 import './movie-card.scss';
 
 export function MovieCard({ movie }) {
     return (
+        <Link to={`/movie/${movie.id}`} className="movie-card__link">
         <article className="movie-card">
             <div className="movie-card__image-wrapper">
                 <img className="movie-card__image" src={getImageUrl(movie.poster_path)} alt={movie.title} />
+                <FavoriteButton className="favorite-button" movie={movie}/>
                 <p className="movie-card__rating">Rating: {movie.vote_average.toFixed(1)}</p>
             </div>
             <div className="movie-card__content">
@@ -13,5 +17,6 @@ export function MovieCard({ movie }) {
                 <p className="movie-card__release-date">{movie.release_date}</p>
             </div>
         </article>
+        </Link>
     )
 }

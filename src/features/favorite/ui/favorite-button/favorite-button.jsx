@@ -1,22 +1,25 @@
 import { useFavorites } from "../../model/use-favorites" 
 import { Button } from "../../../../shared/ui/button";
-import "./favorite-button.scss"
 
-export function FavoriteButton({movie}) {
+export function FavoriteButton({movie, className = ""}) {
     const { isFavorite, addFavorite, removeFavorite } = useFavorites(movie.id);
 
-    const handleClick = () => {
+    const handleClick = (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+
         if (isFavorite) {
             removeFavorite(movie.id);
         } else {
-            addFavorite(movie);
+            addFavorite(movie.id);
         }
-    }
+    };
 
     return (
         <Button 
             type="button" 
             onClick={handleClick}
+            className={className}
         >
         {isFavorite ? "❤️" : "🤍"}
         </Button>

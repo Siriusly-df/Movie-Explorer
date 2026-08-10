@@ -2,7 +2,7 @@ import { usePerson } from "../../entities/movie/api/use-person";
 import { getImageUrl } from "@/shared/lib/get-image-url";
 import { Loader } from "../../shared/ui/loader/loader";
 import { ErrorMessage } from "../../shared/ui/error-message/error-message";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { usePersonMovieCredits } from "../../entities/movie/api/use-person-movie-credits";
 import { MovieCard } from "../../entities/movie/ui/movie-card/movie-card";
 import "./person-page.scss";
@@ -50,9 +50,10 @@ export function PersonPage () {
             <h2 className="person-page__movies-title">Known For</h2>
             <div className="person-page__movies-grid">
                {movie?.cast?.slice(0,21).map((movie) => (
-                <Link key={movie.id} to={`/movie/${movie.id}`}>
-                    <MovieCard movie={movie} />
-                </Link>
+                <MovieCard
+                   key={movie.id}
+                   movie={movie}
+                />
                ))}
             </div>
         </div>

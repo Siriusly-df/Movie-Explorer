@@ -4,32 +4,26 @@ export function getFavorites() {
     return JSON.parse(localStorage.getItem(FAVORITES_KEY)) || [];
 }
 
-export function addFavorite(movie) {
+export function addFavorite(movieId) {
     const favorites = getFavorites();
 
-    if (favorites.some((item) => item.id === movie.id)) {
-        return
+    if (favorites.includes(movieId)) {
+        return;
     }
 
     localStorage.setItem(
         FAVORITES_KEY,
-        JSON.stringify([...favorites, movie])
-    )
+        JSON.stringify([...favorites, movieId])
+    );
 }
 
 export function removeFavorite(movieId) {
-   const favorites = getFavorites(); 
+    const favorites = getFavorites();
 
     localStorage.setItem(
         FAVORITES_KEY,
         JSON.stringify(
-            favorites.filter((movie) => movie.id !== movieId)
+            favorites.filter((id) => id !== movieId)
         )
     );
-}
-
-export function isFavorite(moveId) {
-    const favorites = getFavorites(); 
-
-    return favorites.some((movie) => movie.id === moveId)
 }

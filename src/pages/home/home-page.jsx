@@ -5,7 +5,6 @@ import { ErrorMessage } from '../../shared/ui/error-message/error-message';
 import { useEffect, useState } from 'react';
 import { Pagination } from '../../shared/ui/pagination/pagination';
 import './home-page.scss';
-import { Link } from 'react-router-dom';
 
 export function HomePage() {
   const [page, setPage] = useState(1);
@@ -44,11 +43,10 @@ export function HomePage() {
                     <p>No movies found</p>
                 )}
                 {movies?.results?.map((movie) => (
-                  <Link key={movie.id} to={`/movie/${movie.id}`}>
-                    <MovieCard 
-                        movie={movie} 
-                    />
-                  </Link>
+                  <MovieCard
+                    key={movie.id}
+                    movie={movie}
+                  />
                 ))}
             </div>
             <Pagination 

@@ -1,0 +1,23 @@
+@use "../../app/styles/variables" as *;
+
+.favorite-page {
+    padding: 40px;
+
+    &__title {
+        margin-bottom: 32px;
+        font-size: 36px;
+        font-weight: 700;
+    }
+
+    &__empty {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        min-height: 300px;
+
+        color: $color-grey;
+        font-size: 20px;
+        text-align: center;
+    }
+}
