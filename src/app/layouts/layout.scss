@@ -1,9 +1,11 @@
+@use "../../app/styles/mixins" as *;
+
 .layout {
-    display: flex;
     min-height: 100vh;
 
     &__main {
-        flex: 1;
+        min-width: 0;
+        margin-left: 260px;
         display: flex;
         flex-direction: column;
     }
@@ -11,10 +13,27 @@
     &__content {
         flex: 1;
     }
-}
 
-.layout__search {
-    display: flex;
-    justify-content: center;
-    padding: 20px 0;
+    &__search {
+        display: flex;
+        justify-content: center;
+        padding: 20px 0;
+    }
+
+    @include tablet {
+        &__main {
+            margin-left: 220px;
+        }
+    }
+
+    @include mobile {
+        &__main {
+            margin-left: 0;
+            padding-top: 70px;
+        }
+
+        &__search {
+            padding: 16px;
+        }
+    }
 }

@@ -1,19 +1,39 @@
-@use "../../app/styles/variables" as *; 
+@use "../../app/styles/variables" as *;
+@use "../../app/styles/mixins" as *;
 
 .sidebar {
-    position: sticky;
+    position: fixed;
     top: 0;
+    left: 0;
     width: 260px;
     height: 100vh;
     padding: 24px;
-    border-right: 1px solid #333;
+    border-right: 1px solid $color-grey-dark;
+    background-color: $color-background;
     overflow-y: auto;
+    z-index: 100;
+
+    &__header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
 
     &__logo {
+        display: block;
         margin-bottom: 40px;
+        color: $color-white;
         font-size: 28px;
         font-weight: 700;
+    }
+
+    &__toggle {
+        display: none;
+        padding: 6px;
         color: $color-white;
+        font-size: 24px;
+        line-height: 1;
+        cursor: pointer;
     }
 
     &__nav {
@@ -23,17 +43,26 @@
     &__list {
         display: flex;
         flex-direction: column;
-        gap: 12px;
+        gap: 8px;
+    }
+
+    &__item {
+        width: 100%;
     }
 
     &__link {
         display: block;
         padding: 10px 14px;
         border-radius: 8px;
-        color: $color-grey;
-        transition: 0.2s;
+        color: $color-grey-light;
+        font-size: 15px;
+
+        transition:
+            background-color 0.2s ease,
+            color 0.2s ease;
+
         &:hover {
-            background: rgba(255, 255, 255, 0.08);
+            background-color: $color-surface-hover;
             color: $color-white;
         }
     }
@@ -44,10 +73,54 @@
 
     &__heading {
         margin-bottom: 16px;
-        font-size: 14px;
+        color: $color-grey-light;
+        font-size: 13px;
+        font-weight: 600;
         text-transform: uppercase;
         letter-spacing: 1px;
-        color: $color-grey;
     }
 
+    @include tablet {
+        width: 220px;
+        padding: 20px;
+    }
+
+    @include mobile {
+        position: fixed;
+        width: 100%;
+        height: auto;
+        padding: 16px;
+        border-right: none;
+        border-bottom: 1px solid $color-grey-dark;
+        overflow: visible;
+
+        &__logo {
+            margin-bottom: 0;
+            font-size: 24px;
+        }
+
+        &__toggle {
+            display: block;
+        }
+
+        &__nav,
+        &__section {
+            display: none;
+        }
+    }
+}
+
+.sidebar--open {
+    @include mobile {
+        .sidebar__nav {
+            display: block;
+            margin-top: 24px;
+            margin-bottom: 20px;
+        }
+
+        .sidebar__section {
+            display: block;
+            margin-top: 20px;
+        }
+    }
 }

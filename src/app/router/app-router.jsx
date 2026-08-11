@@ -6,6 +6,8 @@ import { MoviePage } from "../../pages/movie/movie-page";
 import { NotFoundPage } from "../../pages/not-found/not-found-page";
 import { PersonPage } from "../../pages/person/person-page";
 import { SearchPage } from "../../pages/search/search-page";
+import { UpcomingPage } from "../../pages/upcoming/upcoming-page";
+import { DiscoverPage } from "../../pages/discover-page/discover-page";
 
 
 export function AppRouter() {
@@ -19,6 +21,8 @@ export function AppRouter() {
                     <Route path="movie/:id" element={<MoviePage />} />
                     <Route path="*" element={<NotFoundPage />} />
                     <Route path="/actor/:id" element={<PersonPage />} />
+                    <Route path="/upcoming" element={<UpcomingPage />}/>
+                    <Route path="/discover" element={<DiscoverPage />}/>
                 </Route>
             </Routes>
         </BrowserRouter>

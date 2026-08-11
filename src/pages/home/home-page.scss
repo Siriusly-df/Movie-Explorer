@@ -1,12 +1,26 @@
+@use "../../app/styles/variables" as *;
+@use "../../app/styles/mixins" as *;
+
 .home-page {
   padding: 30px;
-  h1 {
-    margin-bottom: 30px;
-  }
-}
 
-.movie-grid {
-   display: grid;
-   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-   gap: 24px;
+  &__title {
+    margin-bottom: 30px;
+    color: $color-text;
+    font-size: 36px;
+    font-weight: 700;
+  }
+
+  @include tablet {
+    padding: 30px;
+  }
+
+  @include mobile {
+    padding: 20px;
+
+    &__title {
+      margin-bottom: 20px;
+      font-size: 28px;
+    }
+  }
 }

@@ -1,24 +1,30 @@
+@use "../../app/styles/variables" as *;
+@use "../../app/styles/mixins" as *;
+
 .movie-page {
   padding: 40px;
 
+  &__back-button {
+    margin-bottom: 20px;
+  }
+
   &__header {
     display: flex;
-    gap: 40px;
     align-items: flex-start;
+    gap: 40px;
   }
 
   &__image-wrapper {
-      position: relative;
-      width: 320px;
-      flex-shrink: 0;
+    position: relative;
+    width: 320px;
+    flex-shrink: 0;
   }
 
   &__image {
-      width: 100%;
-      border-radius: 16px;
-      display: block;
+    display: block;
+    width: 100%;
+    border-radius: 16px;
   }
-
 
   &__info {
     display: flex;
@@ -27,12 +33,14 @@
   }
 
   &__title {
+    color: $color-text;
     font-size: 42px;
     font-weight: 700;
   }
 
   &__average,
   &__release-date {
+    color: $color-grey-light;
     font-size: 18px;
   }
 
@@ -53,10 +61,12 @@
 
   &__genre,
   &__country {
+    color: $color-grey-light;
     font-size: 17px;
   }
 
   &__runtime {
+    color: $color-grey-light;
     font-size: 16px;
   }
 
@@ -66,13 +76,16 @@
 
   &__overview {
     margin-top: 16px;
-    line-height: 1.7;
+    color: $color-grey-light;
     font-size: 17px;
+    line-height: 1.7;
   }
 
-  &__actors-title {
+  &__actors-title,
+  &__similar-title {
     margin-top: 50px;
     margin-bottom: 20px;
+    color: $color-text;
     font-size: 28px;
     font-weight: 600;
   }
@@ -83,45 +96,107 @@
     gap: 20px;
   }
 
-    &__similar-title {
-    margin-top: 50px;
-    margin-bottom: 20px;
-    font-size: 28px;
-    font-weight: 600;
-  }
-
-  &__similar {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 24px;
-  }
-
   &__favorite {
-      position: absolute;
-      top: 12px;
-      right: 12px;
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    padding: 0;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.75);
+    color: $color-white;
+    font-size: 20px;
+    cursor: pointer;
 
-      width: 52px;
-      height: 52px;
-      padding: 0;
+    transition:
+      transform 0.2s ease,
+      background-color 0.2s ease;
 
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    &:hover {
+      transform: scale(1.1);
+      background-color: rgba(0, 0, 0, 0.9);
+    }
+  }
 
-      border-radius: 50%;
-      background: rgba(0, 0, 0, 0.75);
+  @include tablet {
+    padding: 30px;
 
-      font-size: 20px;
-      cursor: pointer;
+    &__header {
+      gap: 30px;
+    }
 
-      transition:
-          transform 0.2s ease,
-          background 0.2s ease;
+    &__image-wrapper {
+      width: 280px;
+    }
 
-      &:hover {
-          transform: scale(1.1);
-          background: rgba(0, 0, 0, 0.9);
-      }
+    &__title {
+      font-size: 36px;
+    }
+
+    &__overview {
+      font-size: 16px;
+    }
+  }
+
+  @include mobile {
+    padding: 20px;
+
+    &__header {
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    &__image-wrapper {
+      width: 100%;
+      max-width: 320px;
+      margin: 0 auto;
+    }
+
+    &__info {
+      width: 100%;
+    }
+
+    &__title {
+      font-size: 30px;
+    }
+
+    &__average,
+    &__release-date {
+      font-size: 16px;
+    }
+
+    &__genre,
+    &__country {
+      font-size: 15px;
+    }
+
+    &__description {
+      margin-top: 30px;
+    }
+
+    &__overview {
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    &__actors-title,
+    &__similar-title {
+      margin-top: 36px;
+      font-size: 24px;
+    }
+
+    &__credits {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    &__favorite {
+      width: 46px;
+      height: 46px;
+    }
   }
 }

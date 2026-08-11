@@ -1,0 +1,94 @@
+@use "../../../app/styles/variables" as *;
+@use "../../../app/styles/mixins" as *;
+
+.movie-filters {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr) auto;
+    gap: 20px;
+    align-items: end;
+    margin-bottom: 30px;
+    padding: 20px;
+    border: 1px solid $color-grey-dark;
+    border-radius: 12px;
+    background-color: $color-surface;
+
+    &__field {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    &__label {
+        color: $color-grey-light;
+        font-size: 14px;
+        font-weight: 500;
+    }
+
+    &__input,
+    &__select {
+        width: 100%;
+        min-height: 42px;
+        padding: 8px 12px;
+        border: 1px solid $color-grey-dark;
+        border-radius: 8px;
+        background-color: $color-background;
+        color: $color-text;
+        font-size: 14px;
+        outline: none;
+        transition: border-color 0.2s ease;
+
+        &:focus {
+            border-color: $color-grey-light;
+        }
+    }
+
+    &__submit {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 42px;
+        padding: 12px 24px;
+        border: 1px solid $color-grey-light;
+        border-radius: 8px;
+        background-color: $color-white;
+        color: $color-black;
+        font-size: 15px;
+        font-weight: 500;
+        cursor: pointer;
+
+        transition:
+            background-color 0.2s ease,
+            color 0.2s ease,
+            border-color 0.2s ease;
+
+        &:hover {
+            background-color: $color-black;
+            color: $color-white;
+            border-color: $color-white;
+        }
+    }
+
+    &__error {
+        margin-top: 4px;
+        color: $color-error;
+        font-size: 12px;
+    }
+
+    @include tablet {
+        grid-template-columns: repeat(2, 1fr);
+
+        &__submit {
+            width: 100%;
+        }
+    }
+
+    @include mobile {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        padding: 16px;
+
+        &__submit {
+            width: 100%;
+        }
+    }
+}

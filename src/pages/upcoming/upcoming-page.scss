@@ -1,24 +1,25 @@
 @use "../../app/styles/variables" as *;
 @use "../../app/styles/mixins" as *;
 
-.favorite-page {
+.upcoming-page {
     padding: 40px;
 
     &__title {
-        margin-bottom: 32px;
+        margin-bottom: 30px;
         color: $color-text;
         font-size: 36px;
         font-weight: 700;
     }
 
     &__empty {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        min-height: 300px;
+        margin-top: 40px;
         color: $color-grey-light;
         font-size: 20px;
         text-align: center;
+    }
+
+    &__pagination {
+        margin-top: 30px;
     }
 
     @include tablet {
@@ -33,13 +34,17 @@
         padding: 20px;
 
         &__title {
-            margin-bottom: 24px;
+            margin-bottom: 20px;
             font-size: 28px;
         }
 
         &__empty {
-            min-height: 220px;
+            margin-top: 30px;
             font-size: 17px;
+        }
+
+        &__pagination {
+            margin-top: 24px;
         }
     }
 }
