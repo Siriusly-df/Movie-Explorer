@@ -6,13 +6,8 @@ import "./discover-page.scss";
 
 export function DiscoverPage() {
     const [filters, setFilters] = useState(null);
-    const [page, setPage] = useState(1);
 
-    const discoverQuery = useDiscoverMovies(filters, page);
-
-    const handleFiltersSubmit = (filters) => {
-        console.log(filters);
-    };
+    const discoverQuery = useDiscoverMovies(filters);
 
     return (
         <div className="discover-page">
@@ -20,17 +15,29 @@ export function DiscoverPage() {
             <MovieFilters
                 onSubmit={(values) => {
                     setFilters(values);
-                    setPage(1);
                 }}
             />
             <div className="discover-page__results">
-            {discoverQuery.data?.results?.map((movie) => (
-                <MovieCard
-                    key={movie.id}
-                    movie={movie}
-                />
-            ))}
+            {discoverQuery.data?.pages?.flatMap((page) => page.results)
+                .map((movie) => (
+                    <MovieCard
+                        key={movie.id}
+                        movie={movie}
+                    />
+                ))}
             </div>
+            {discoverQuery.hasNextPage && (
+                <button
+                    className="discover-page__load-more"
+                    type="button"
+                    onClick={() => discoverQuery.fetchNextPage()}
+                    disabled={discoverQuery.isFetchingNextPage}
+                >
+                    {discoverQuery.isFetchingNextPage
+                        ? "Loading..."
+                        : "Load More"}
+                </button>
+            )}
         </div>
     );
 }
