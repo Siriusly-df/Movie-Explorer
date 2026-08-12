@@ -1,16 +1,123 @@
-# React + Vite
+# Movie Explorer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Веб-застосунок для пошуку, перегляду та дослідження фільмів і акторів, розроблений на React з використанням TMDB API.
 
-Currently, two official plugins are available:
+## Перейти до проєкту
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Натисніть на посилання нижче, щоб відкрити застосунок: https://movie-explorer-chi-one.vercel.app/
 
-## React Compiler
+## Можливості проєкту
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+* Перегляд популярних фільмів
+* Перегляд майбутніх релізів
+* Пошук фільмів
+* Фільтрація фільмів за роком, рейтингом та жанром
+* Сортування фільмів
+* Пагінація
+* Перегляд детальної інформації про фільм
+* Перегляд акторського складу
+* Перегляд інформації про актора
+* Перегляд схожих фільмів
+* Додавання фільмів до обраного
+* Збереження обраних фільмів
+* Адаптивний дизайн для desktop, tablet та mobile
+* Обробка станів завантаження та помилок
+* Валідація форми фільтрів
 
-## Expanding the ESLint configuration
+## Сторінки
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+* **Home** — популярні фільми та сортування
+* **Discover** — пошук фільмів за параметрами
+* **Search** — пошук фільмів
+* **Upcoming** — майбутні релізи
+* **Favorites** — обрані фільми
+* **Movie Details** — детальна інформація про фільм
+* **Person Details** — інформація про актора
+* **404** — сторінка для неіснуючих маршрутів
+
+## Стек технологій
+
+* React
+* Vite
+* React Router
+* TanStack Query
+* React Hook Form
+* Zod
+* SCSS
+* TMDB API
+
+## Архітектура
+
+Проєкт побудований за принципами **Feature-Sliced Design (FSD)**.
+
+```text
+src/
+├── app/
+│
+├── pages/
+│
+├── widgets/
+│
+├── features/
+│
+├── entities/
+│
+└── shared/
+
+```
+
+## Робота з API
+
+Для отримання даних про фільми та акторів використовується **TMDB API**.
+
+API-запити та серверний стан обробляються за допомогою **TanStack Query**.
+
+## Змінні середовища
+
+Для роботи з TMDB API необхідно створити `.env` у корені проєкту:
+
+```env
+VITE_TMDB_API_KEY=your_api_key
+```
+
+## Запуск проєкту
+
+Клонувати репозиторій:
+
+```bash
+git clone YOUR_REPOSITORY_URL
+cd movie-explorer
+```
+
+Встановити залежності:
+
+```bash
+npm install
+```
+
+Створити файл `.env` та додати TMDB API key.
+
+Запустити development server:
+
+```bash
+npm run dev
+```
+
+Для production build:
+
+```bash
+npm run build
+```
+
+Перегляд production build локально:
+
+```bash
+npm run preview
+```
+
+## Автор
+
+Євгеній Ліхарєв
+
+Проєкт створений як pet-project для навчання та портфоліо. Застосунок не має комерційної мети та розроблений для практики React, роботи з API, TanStack Query, React Hook Form, Zod, SCSS та Feature-Sliced Design.
+
